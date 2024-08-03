@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: Dmhylib
+Version: 0.0.1
+Summary: A library for searching and downloading from dmhy.org
+Home-page: https://github.com/adogecheems/Dmhylib/
+Author: adogecheems
+Author-email: adogecheems@outlook.com
+License: GPL-3.0
+Keywords: dmhy search download anime
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Description-Content-Type: text/markdown
+License-File: LICENCE
+Requires-Dist: requests~=2.31.0
+Requires-Dist: beautifulsoup4~=4.12.3

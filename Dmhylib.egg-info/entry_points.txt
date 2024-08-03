@@ -1,0 +1,2 @@
+[console_scripts]
+dmhysearch = dmhylib.cli:main
