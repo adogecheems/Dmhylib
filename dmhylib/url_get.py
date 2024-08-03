@@ -16,7 +16,7 @@ def get_url(url, proxies=None, system_proxy=False, verify=True):
             'https': os.environ.get('https_proxy')
         }
         if not proxies['http'] and not proxies['https']:
-            log.warning("No system proxy found")
+            log.warning("No system proxy found.")
             proxies = None
 
     try:

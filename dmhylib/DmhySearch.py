@@ -1,3 +1,5 @@
+import csv
+import os
 from typing import List, Optional
 from urllib.parse import urlencode, urlparse, parse_qs
 
@@ -17,18 +19,21 @@ class DmhySearch:
         self.reset()
         self._parser = parser
         self._verify = verify
-        log.debug("New search object created")
+        log.debug("New search object created.")
 
     def reset(self) -> None:
         self.num = 0
+
         self.titles: List[str] = []
         self.pikpak_urls: List[str] = []
         self.sizes: List[str] = []
         self.magnets: List[str] = []
+
         self.title = ""
         self.pikpak_url = ""
         self.size = ""
         self.magnet = ""
+
         self.if_selected = False
 
     def search(self, keyword: str, sort_id: int = 0, team_id: int = 0, order: str = 'date-desc',
@@ -94,8 +99,28 @@ class DmhySearch:
             self.value = convert_byte(self.value, self.unit, 'MB')
             self.size = f"{self.value}MB"
 
-    def save_csv(self, filename):
-        pass
+    def save_csv(self, filename: str) -> None:
+        if not self.if_selected:
+            raise ValueError("No item selected. Please use select() method first.")
+
+        if not os.path.exists(filename):
+            with open(filename, mode='w') as f:
+                f.write("title,pikpak_url,size,magnet\n")
+
+        with open(filename, mode='a+') as f:
+            writer = csv.DictWriter(f, fieldnames=[
+                "title",
+                "pikpak_url",
+                "size",
+                "magnet"
+            ])
+
+            writer.writerow({
+                "title": self.title,
+                "pikpak_url": self.pikpak_url,
+                "size": self.size,
+                "magnet": self.magnet
+            })
 
 
 if __name__ == "__main__":
