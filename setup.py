@@ -15,7 +15,7 @@ setup(
     },
     author='adogecheems',
     author_email='adogecheems@outlook.com',
-    description='A library for searching and downloading from dmhy.org',
+    description='A library for searching and downloading from dmhy.org.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='https://github.com/adogecheems/Dmhylib/',

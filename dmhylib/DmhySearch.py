@@ -22,7 +22,7 @@ class DmhySearch:
         log.debug("New search object created.")
 
     def reset(self) -> None:
-        self.num = 0
+        self.sum = 0
 
         self.titles: List[str] = []
         self.pikpak_urls: List[str] = []
@@ -59,7 +59,7 @@ class DmhySearch:
                 for tr in bs.find(id="topic_list").tbody.find_all("tr"):
                     tds = tr.find_all("td")
 
-                    self.num += 1
+                    self.sum += 1
 
                     try:
                         title = tds[2].find_all("a")[1].get_text()
