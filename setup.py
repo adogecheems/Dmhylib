@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 
+with open("README.md", "r", encoding="utf-8") as f:
+    long_description = f.read()
 
 def read_requirements():
-    with open('requirements.txt') as req:
-        return req.read().splitlines()
+    with open('requirements.txt') as f:
+        return f.read().splitlines()
 
 setup(
     name='Dmhylib',
-    version='0.0.1',
+    version='1.0.0',
     packages=find_packages(exclude=['tests*']),
     install_requires=read_requirements(),
     entry_points={

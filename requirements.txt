@@ -1,7 +1,4 @@
-pandas~=2.2.2
 rich~=13.7.1
-Dmhylib~=0.0.1
 requests~=2.31.0
-bs4~=0.0.2
 beautifulsoup4~=4.12.3
-setuptools~=69.5.1
+lxml~=5.2.2
