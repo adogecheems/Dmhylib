@@ -21,16 +21,17 @@ from dmhylib import DmhySearch
 ### 创建搜索对象
 
 ```python
-search = DmhySearch(parser='lxml', verify=True)
+search = DmhySearch(parser='lxml', verify=True, timefmt='%Y/%m/%d %H:%M')
 ```
 
 - `parser`: BeautifulSoup 解析器，默认为 'lxml'
 - `verify`: 是否验证 SSL 证书，默认为 True
+- `timefmt`: 时间格式，默认为 '%Y/%m/%d %H:%M'
 
 ### 执行搜索
 
 ```python
-searcher.search(keyword="关键词", sort_id=0, team_id=0, order='date-desc', proxies=None, system_proxy=False)
+search.search(keyword="关键词", sort_id=0, team_id=0, order='date-desc', proxies=None, system_proxy=False)
 ```
 
 - `keyword`: 搜索关键词
@@ -43,7 +44,7 @@ searcher.search(keyword="关键词", sort_id=0, team_id=0, order='date-desc', pr
 ### 选择搜索结果
 
 ```python
-searcher.select(num)
+search.select(num)
 ```
 
 - `num`: 要选择的搜索结果的索引
@@ -51,18 +52,20 @@ searcher.select(num)
 ### 格式化文件大小
 
 ```python
-searcher.size_format()
+search.size_format(unit='MB')
 ```
 
-将选中项的文件大小格式化为 MB。
+- `unit`: 目标单位，默认为 'MB'
+
+将选中项的文件大小格式化为指定单位。
 
 ### 保存为 CSV
 
 ```python
-searcher.save_csv(filename)
+search.save_csv(filename)
 ```
 
-- `filename`: 要保存的 CSV 路径
+- `filename`: 要保存的 CSV 文件路径
 
 将选中的搜索结果保存到 CSV 文件中。
 
@@ -71,15 +74,15 @@ searcher.save_csv(filename)
 搜索后，可以通过以下属性访问结果:
 
 - `search.sum`: 搜索结果总数
+- `search.times`: 发布时间列表
 - `search.titles`: 标题列表
-- `search.pikpak_urls`: PikPak 链接列表
 - `search.sizes`: 文件大小列表
 - `search.magnets`: 磁力链接列表
 
 选择某个结果后，可以通过以下属性访问选中项:
 
+- `search.time`: 选中项的发布时间
 - `search.title`: 选中项的标题
-- `search.pikpak_url`: 选中项的 PikPak 链接
 - `search.size`: 选中项的文件大小
 - `search.magnet`: 选中项的磁力链接
 
@@ -97,8 +100,8 @@ search.search(keyword="我推的孩子")
 # 选择第一个结果
 search.select(0)
 
-# 格式化文件大小
-search.size_format()
+# 格式化文件大小为 GB
+search.size_format(unit='GB')
 
 # 保存到 CSV 文件
 search.save_csv("results.csv")
@@ -147,6 +150,7 @@ dmhysearch search -k "我推的孩子"
 
 ```
 dmhysearch search -k "我推的孩子" -s 31
+# "31"是指季度全集
 ```
 
 3. 指定团队ID和排序方式：

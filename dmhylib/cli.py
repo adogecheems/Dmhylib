@@ -4,7 +4,7 @@ from typing import Dict, Any, List, Tuple
 from rich.console import Console
 from rich.table import Table
 
-from dmhylib import DmhySearch
+from . import DmhySearch
 
 console = Console()
 

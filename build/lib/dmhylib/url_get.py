@@ -2,7 +2,7 @@ import os
 
 import requests
 
-from dmhylib import log
+from . import log
 
 
 def get_url(url, proxies=None, system_proxy=False, verify=True):
