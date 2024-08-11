@@ -9,7 +9,7 @@ def read_requirements():
 
 setup(
     name='Dmhylib',
-    version='1.0.0',
+    version='2.0.0',
     packages=find_packages(exclude=['tests*']),
     install_requires=read_requirements(),
     entry_points={

@@ -59,8 +59,8 @@ def handle_search(args: argparse.Namespace) -> None:
         selection = get_user_selection(searcher.sum)
         if selection > 0:
             num = selection - 1
+            searcher.time = searcher.times[num]
             searcher.title = searcher.titles[num]
-            searcher.pikpak_url = searcher.pikpak_urls[num]
             searcher.size = searcher.sizes[num]
             searcher.magnet = searcher.magnets[num]
 

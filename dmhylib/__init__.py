@@ -1,7 +1,6 @@
 import logging
 from typing import List
 
-# 常量定义
 LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
 LOG_FILE = "dmhy.log"
 
@@ -25,6 +24,6 @@ def setup_logger(name: str = "global", level: int = logging.DEBUG) -> logging.Lo
 
 log = setup_logger()
 
-from dmhylib.DmhySearch import DmhySearch, SORT_ID_COLLECTION
+from dmhylib.DmhySearch import DmhySearch
 
-__all__: List[str] = ["DmhySearch", "SORT_ID_COLLECTION", "log"]
+__all__: List[str] = ["DmhySearch", "log"]
